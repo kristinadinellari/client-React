@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="6c542cc5-a6f2-4321-9020-ac0f7210ff8e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/client-react-ts.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/logo192.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/logo512.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/manifest.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/robots.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/App.test.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Firebase/auth.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Firebase/firebase.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/interfaces/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/logo.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/react-app-env.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/serviceWorker.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/setupTests.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1W9j97R9w2pcUAb4bgvKoj798OJ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../spotify_based_client-react" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6c542cc5-a6f2-4321-9020-ac0f7210ff8e" name="Default Changelist" comment="" />
+      <created>1578568551064</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1578568551064</updated>
+      <workItem from="1578568552407" duration="3002000" />
+      <workItem from="1578575112494" duration="10196000" />
+      <workItem from="1578585332123" duration="372000" />
+      <workItem from="1578585717916" duration="957000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1050" y="274" width="800" height="677" key="#Notifications" timestamp="1578570741961">
+      <screen x="63" y="27" width="1857" height="1173" />
+    </state>
+    <state x="1050" y="274" width="800" height="677" key="#Notifications/63.27.1857.1173@63.27.1857.1173" timestamp="1578570741961" />
+    <state x="586" y="274" width="800" height="677" key="#TypeScript" timestamp="1578584549619">
+      <screen x="63" y="27" width="1857" height="1173" />
+    </state>
+    <state x="586" y="274" width="800" height="677" key="#TypeScript/63.27.1857.1173@63.27.1857.1173" timestamp="1578584549619" />
+    <state x="1238" y="370" width="424" height="484" key="FileChooserDialogImpl" timestamp="1578585360960">
+      <screen x="63" y="27" width="1857" height="1173" />
+    </state>
+    <state x="1238" y="370" width="424" height="484" key="FileChooserDialogImpl/63.27.1857.1173@63.27.1857.1173" timestamp="1578585360960" />
+    <state x="163" y="125" width="1657" height="975" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1578576268275">
+      <screen x="63" y="27" width="1857" height="1173" />
+    </state>
+    <state x="163" y="125" width="1657" height="975" key="com.intellij.history.integration.ui.views.FileHistoryDialog/63.27.1857.1173@63.27.1857.1173" timestamp="1578576268275" />
+    <state x="639" y="343" width="704" height="538" key="find.popup" timestamp="1578578925192">
+      <screen x="63" y="27" width="1857" height="1173" />
+    </state>
+    <state x="639" y="343" width="704" height="538" key="find.popup/63.27.1857.1173@63.27.1857.1173" timestamp="1578578925192" />
+    <state x="1139" y="283" key="run.anything.popup" timestamp="1578579787966">
+      <screen x="63" y="27" width="1857" height="1173" />
+    </state>
+    <state x="1139" y="283" key="run.anything.popup/63.27.1857.1173@63.27.1857.1173" timestamp="1578579787966" />
+    <state x="1180" y="526" width="540" height="172" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1578570719860">
+      <screen x="63" y="27" width="1857" height="1173" />
+    </state>
+    <state x="1180" y="526" width="540" height="172" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/63.27.1857.1173@63.27.1857.1173" timestamp="1578570719860" />
+  </component>
+</project>
