@@ -7,10 +7,11 @@ module.exports = {
     output: {
         path: path.resolve( __dirname, 'dist' ),
         filename: 'main.js',
-        publicPath: '/',
     },
+
     devServer: {
-        historyApiFallback: true
+        historyApiFallback: true,
+        publicPath: '/',
     },
     resolve: {
         extensions: ['.ts', '.tsx', '.js']
@@ -30,10 +31,11 @@ module.exports = {
         //         use: 'file-loader'
         //     }
         // ]
+
         rules: [
             {
                 test: /\.ts(x?)$/,
-                exclude: /node_modules/,
+                exclude: /(node_modules)/,
                 use: [
                     {
                         loader: "ts-loader"
@@ -44,7 +46,6 @@ module.exports = {
                 test: /\.css$/i,
                 use: ['style-loader', 'css-loader'],
             },
-            { test: /\.txt$/, use: 'raw-loader' },
             // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
             {
                 enforce: "pre",
@@ -54,8 +55,9 @@ module.exports = {
         ]
     },
     plugins: [
+
         new HtmlWebpackPlugin({
-            template: path.resolve( __dirname, 'public/index.html' ),
+            template: path.resolve( __dirname, './public/index.html' ),
             filename: 'index.html'
         })
     ]

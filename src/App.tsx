@@ -1,19 +1,20 @@
 import React from 'react'
+import {
+  BrowserRouter as Router,
+  Route
+} from "react-router-dom";
 import './App.css';
+
+//components
+import Login from "./components/Login";
 
 class App extends React.Component {
   render() {
-    return <div className="App">
-      <header className="App-header">
-        <p>Edits</p>
-        <a className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer">
-          Learn React ergtrdfgd
-        </a>
-      </header>
-    </div>
+    return (
+        <Router>
+          <Route exact path="/login" component={Login}/>
+        </Router>
+    )
   }
 }
 
