@@ -1,12 +1,6 @@
 import React from 'react'
+import {BrowserRouter as Router, Route} from "react-router-dom";
 import './assets/scss/app.scss'
-
-
-import {
-  BrowserRouter as Router,
-  Route
-} from "react-router-dom";
-
 //components
 import Login from "./components/Login";
 import MainContent from './components/MainContent';

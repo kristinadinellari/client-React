@@ -7,19 +7,32 @@ html {
     -webkit-font-smoothing: antialiased;
     box-sizing: border-box;
   }
-  
+
   *,
   *:before,
   *:after {
     box-sizing: border-box;
     margin: 0;
-  
+
   }
   button {
     outline: none;
     border: none;
     cursor: pointer;
+    @include borderRadius(3px);
+    @include transition(all .3s);
+    box-shadow: 0 0 0 0;
+    &:hover {
+      box-shadow: 0 1px 6px 1px rgba(204,204,204,0.6);
+    }
   }
+
   input {
+    @include borderRadius(3px);
+    padding: 5px 10px;
+    border: 1px solid $border-color;
     outline: none;
+    &:focus {
+      box-shadow: 0 0 5px 0 rgba(204, 204, 204, 0.5);
+    }
   }

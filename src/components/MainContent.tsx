@@ -1,17 +1,18 @@
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import Nav from "../components/Content/Menu/Nav";
+import { Route } from 'react-router-dom'
 import Sidebar from "../components/Content/Menu/Sidebar"
-
+import Profile from "../components/Content/User/Profile"
 
 class MainContent extends React.Component {
   render() {
     return (
         <div id="MainContent" className="mainContent">
-          <Nav/>
           <Sidebar/>
           <div className="content">
-            here on content
+            <Route
+                exact
+                path="/profile"
+                component={Profile}/>
           </div>
         </div>
     );
