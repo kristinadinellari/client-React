@@ -3,7 +3,7 @@ import React from "react";
 class Sidebar extends React.Component {
   render() {
     return (
-        <div>
+        <div className="sidebarComponent">
           <div id="Sidebar">
             <h1>this  Sidebar component</h1>
             hello
@@ -12,5 +12,4 @@ class Sidebar extends React.Component {
     );
   }
 }
-
 export default Sidebar;

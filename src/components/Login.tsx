@@ -6,7 +6,7 @@ class Login extends React.Component {
         <div>
           <div id="login">
             <h1>this  login page</h1>
-            hello
+            <input />
           </div>
         </div>
     );

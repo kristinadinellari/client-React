@@ -1,10 +1,11 @@
 import React from 'react'
+import './assets/scss/app.scss'
+
 
 import {
   BrowserRouter as Router,
   Route
 } from "react-router-dom";
-import './App.css';
 
 //components
 import Login from "./components/Login";
@@ -15,7 +16,7 @@ class App extends React.Component {
     return (
         <Router>
           <Route exact path="/login" component={Login}/>
-          <Route component={MainContent} />
+          <Route path="/content" component={MainContent} />
         </Router>
     )
   }

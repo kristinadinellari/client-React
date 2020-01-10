@@ -1,13 +1,12 @@
 import React from "react";
+import Button from '@material-ui/core/Button';
 
 class Nav extends React.Component {
   render() {
     return (
-        <div>
-          <div id="Nav">
-            <h1>this  nav component</h1>
-            hello
-          </div>
+        <div className="navComponent">
+          <Button variant="contained" color="default">
+          </Button>
         </div>
     );
   }
