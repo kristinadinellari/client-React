@@ -1,41 +1,59 @@
 import React from "react";
-import {Redirect} from 'react-router-dom';
+import {getUser, getUsers} from '../services'
+import {AppState} from "../redux/storeConfig";
+import {connect} from "react-redux";
+import { ThunkDispatch } from 'redux-thunk'
+import {AppActions} from "../redux/actions/types";
 
-class Login extends React.Component<any, IUser> {
+interface LinkDispatchProps {
+  
+}
+
+
+
+const mapStateToProps = (state: AppState) => ({
+  users: state.users
+});
+
+
+const mapDispatchToProps = (
+    dispatch: ThunkDispatch<any, any, AppActions>
+): LinkDispatchProps => ({
+  users: state.users
+})
+
+export class Login extends React.Component<any, any> {
   constructor(props: any) {
     super(props);
-  }
-  public test() {
-    console.log(this.state, 'state')
-  }
-  private getNameValue(name: String) {
-    this.setState({
-      name: name
-    });
-  }
-  private getPassword(passw: any) {
-    this.setState({
-      password: passw
-    });
+    this.state = {
+      name: String,
+      password: '',
+      users: []
+    };
   }
 
-  private onClick () {
-
+  login = () => {
+    getUsers();
+    console.log(this.props.users, 'test props')
   };
 
   render() {
     return (
         <div className='login'>
           <div className='loginForm'>
-            <div className="title">Login</div>
+            <div className="title">Login {this.state.name}</div>
             <div className='inputHolder'>
-              <input type="text" onChange={e => this.getNameValue(e.target.value)}/>
+              <input type="text" onChange={e => this.setState({
+                name: e.target.value
+              })}/>
             </div>
             <div className='inputHolder'>
-              <input type="text" onChange={e => this.getPassword(e.target.value)}/>
+              <input type="text" onChange={e => this.setState({
+                password: e.target.value
+              })}/>
             </div>
             <div className='inputHolder'>
-              <button onClick={this.onClick}>
+              <button onClick={this.login}>
                 Login
               </button>
             </div>
@@ -45,9 +63,5 @@ class Login extends React.Component<any, IUser> {
   }
 }
 
-interface IUser {
-  name: String,
-  password: any
-}
+export default connect(mapStateToProps)(Login);
 
-export default Login;
