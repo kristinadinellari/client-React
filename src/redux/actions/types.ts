@@ -7,6 +7,5 @@ export interface SetUserAction {
   users: IUser[]
 }
 export type UserActionsTypes = SetUserAction;
-
 //represent all the possible Redux actions
 export type AppActions = UserActionsTypes;

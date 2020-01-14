@@ -1,26 +1,13 @@
 import React from "react";
-import {getUser, getUsers} from '../services'
+import {getUsers} from '../services'
 import {AppState} from "../redux/storeConfig";
 import {connect} from "react-redux";
-import { ThunkDispatch } from 'redux-thunk'
-import {AppActions} from "../redux/actions/types";
-
-interface LinkDispatchProps {
-  
-}
-
-
+import {IUser} from '../interfaces'
 
 const mapStateToProps = (state: AppState) => ({
   users: state.users
 });
 
-
-const mapDispatchToProps = (
-    dispatch: ThunkDispatch<any, any, AppActions>
-): LinkDispatchProps => ({
-  users: state.users
-})
 
 export class Login extends React.Component<any, any> {
   constructor(props: any) {
@@ -34,13 +21,16 @@ export class Login extends React.Component<any, any> {
 
   login = () => {
     getUsers();
-    console.log(this.props.users, 'test props')
   };
 
   render() {
+      console.log(this.props, 'props me reder')
     return (
         <div className='login'>
           <div className='loginForm'>
+              {this.props.users.map((a: IUser):string => {
+                  return a.firstName
+              })}
             <div className="title">Login {this.state.name}</div>
             <div className='inputHolder'>
               <input type="text" onChange={e => this.setState({
