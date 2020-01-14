@@ -1,13 +1,15 @@
 import React from "react";
-import {getUsers} from '../services'
-import {AppState} from "../redux/storeConfig";
-import {connect} from "react-redux";
-import {IUser} from '../interfaces'
+import { Redirect } from 'react-router-dom'
+import { getUsers, addUser } from '../services'
+import { AppState } from "../store/storeConfig";
+import { connect } from "react-redux";
+import { IUser } from '../interfaces'
 
 const mapStateToProps = (state: AppState) => ({
-  users: state.users
+  users: state.users,
+  user: state.user,
+  userName: state.userName
 });
-
 
 export class Login extends React.Component<any, any> {
   constructor(props: any) {
@@ -15,22 +17,41 @@ export class Login extends React.Component<any, any> {
     this.state = {
       name: String,
       password: '',
-      users: []
+      redirect: false
     };
   }
 
-  login = () => {
-    getUsers();
+  setRedirect = () => {
+    this.setState({
+      redirect: true
+    })
+  };
+  renderRedirect = () => {
+    if (this.state.redirect) {
+      return <Redirect to='/content'/>
+    } 
   };
 
+  login = () => {
+    const userName = this.state.name;
+    getUsers(userName);
+    this.setRedirect();
+  };
+
+  users ():IUser[] {
+    if (this.props.users && this.props.users.length > 0) {
+      return this.props.users;
+    }
+    else {
+      return [];
+    }
+  }
   render() {
-      console.log(this.props, 'props me reder')
     return (
         <div className='login'>
-          <div className='loginForm'>
-              {this.props.users.map((a: IUser):string => {
-                  return a.firstName
-              })}
+          {this.renderRedirect()}
+          <div className='loginForm' >
+              {this.users().map((a: IUser):string => a.firstName)}
             <div className="title">Login {this.state.name}</div>
             <div className='inputHolder'>
               <input type="text" onChange={e => this.setState({

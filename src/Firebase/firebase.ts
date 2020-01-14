@@ -15,10 +15,7 @@ const config = {
 
 if (!firebase.apps.length) {
     firebase.initializeApp(config);
-    console.log(firebase.apps.length, 'Firebase.apps.length')
 }
 
 export const auth = firebase.auth();
 export const db = firebase.firestore();
-
-console.log(auth, 'auth')

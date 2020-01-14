@@ -1,1 +1,0 @@
-export const confirmFirebase = () => console.log('here on Firebase')

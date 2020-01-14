@@ -1,9 +1,15 @@
-import {IUser} from 'interfaces/index'
+import {IUser} from '../interfaces'
 import {db} from '../Firebase/firebase'
-import { startSetUsers } from '../redux/actions/actions'
+import { startSetUsers, startSetUser } from '../pages/User/actions'
 
-export const addUser = (userObj: IUser): void => {
-  db.collection("users").add(userObj).then((res) => {
+export const addUser = (): void => {
+  db.collection("users").add({
+    age: 23,
+    email: 'email@gmail.com',
+    firstName: 'testNAme',
+    lastName: 'testSurname',
+    type: 1
+  }).then((res) => {
     console.log("Document written with ID: ", res);
   }).catch(function (error) {
     console.error("Error adding document: ", error);
@@ -12,12 +18,13 @@ export const addUser = (userObj: IUser): void => {
 
 let test: Array<IUser> = [];
 
-export const getUsers = () => {
+export const getUsers = (userName: string) => {
   db.collection("users").get().then((response) => {
     response.forEach((res) => {
       test.push(<IUser>res.data())
     });
-    startSetUsers(test)
+    startSetUsers(test, userName);
+    startSetUser(test[0])
   });
 };
 

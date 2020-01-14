@@ -2,10 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import {Provider} from 'react-redux';
-import {store} from './redux/storeConfig'
+import {store} from './store/storeConfig'
 
 ReactDOM.render(
     <Provider store={store}>
         <App/>
-    </Provider>, document.getElementById('content')
+    </Provider>
+    , document.getElementById('content')
 );
