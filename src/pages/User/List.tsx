@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from "react-redux";
 import { IUser } from 'interfaces';
 import { AppState } from "../../store/storeConfig";
-import { getUsers } from '../../services'
+import { getUsers } from '../../services/users';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -22,36 +22,34 @@ export class SimpleTable extends React.Component<any, any> {
       return this.props.users;
     }
     else {
-      return [];
+      return []
     }
-  }
+  };
 
-  getUserData() {
+  getUsersData() {
     if (!this.props.users || this.props.users.length < 0) {
-      getUsers();
+      getUsers()
     }
   }
 
   render() {
-    this.getUserData()
+    this.getUsersData();
     return (
       <TableContainer component={Paper}>
         <Table aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell>ID</TableCell>
-              <TableCell align="right">Name</TableCell>
-              <TableCell align="right">Surname</TableCell>
-              <TableCell align="right">Type</TableCell>
+              <TableCell>Name</TableCell>
+              <TableCell>Surname</TableCell>
+              <TableCell>Type</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {this.users().map((user: IUser) => (
               <TableRow key={user.id}>
-                <TableCell>{user.id}</TableCell>
-                <TableCell align="right">{user.firstName}</TableCell>
-                <TableCell align="right">{user.lastName}</TableCell>
-                <TableCell align="right">{user.type}</TableCell>
+                <TableCell>{user.firstName}</TableCell>
+                <TableCell>{user.lastName}</TableCell>
+                <TableCell>{user.type}</TableCell>
               </TableRow>
             ))}
           </TableBody>

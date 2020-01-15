@@ -1,5 +1,5 @@
-import {IUser} from '../interfaces'
-import {db} from '../Firebase/firebase'
+import { IUser } from '../interfaces'
+import { db } from '../Firebase/firebase'
 import { startSetUsers, startSetUser } from '../pages/User/actions'
 
 export const addUser = (): void => {
@@ -24,7 +24,7 @@ export const getUsers = () => {
       const user = {
         ...res.data(),
         id: res.id
-      }
+      };
       users.push(<IUser>user);
     });
     startSetUsers(users);
@@ -32,15 +32,15 @@ export const getUsers = () => {
 };
 
 export const getUser = (firstName: string) => {
-  const result: Array<any> = []
+  const result: Array<any> = [];
   db.collection('users').where('firstName', '==', `${firstName}`).get().then((response) => {
     response.forEach((res) => {
       const user = {
         ...res.data(),
         id: res.id,
-      }
-      result.push(user)
+      };
+      result.push(user);
     });
-    startSetUser(result[0])
+    startSetUser(result[0]);
   });
 };

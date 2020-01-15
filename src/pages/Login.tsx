@@ -1,6 +1,6 @@
 import React from "react";
 import { Redirect } from 'react-router-dom'
-import { getUsers, getUser } from '../services'
+import { getUsers, getUser } from '../services/users'
 import { AppState } from "../store/storeConfig";
 import { connect } from "react-redux";
 import { IUser } from '../interfaces'
@@ -35,7 +35,7 @@ export class Login extends React.Component<any, any> {
   login = () => {
     const userName = this.state.name;
     getUser(userName);
-    getUsers();
+    // getUsers();
     this.setRedirect();
   };
 

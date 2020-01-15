@@ -6,3 +6,9 @@ export interface IUser {
   lastName: string,
   type: number,
 }
+
+export interface ICalorie {
+  amount: number,
+  date: string,
+  userId: string,
+}

@@ -19,7 +19,9 @@ export const startSetUsers = (users: IUser[]) => {
 export const startSetUser = (user: IUser) => {
   const { id, firstName, lastName, type } = user;
   localStorage.setItem('user', JSON.stringify({
-    name: `${firstName} ${lastName}`,
+    firstName: firstName,
+    lastName: lastName,
+    fullName: `${firstName} ${lastName}`,
     type: type,
     id: id
   }));
