@@ -28,7 +28,7 @@ export class Login extends React.Component<any, any> {
   };
   renderRedirect = () => {
     if (this.state.redirect) {
-      return <Redirect to='/content'/>
+      return <Redirect to='/users'/>
     } 
   };
 
@@ -52,7 +52,7 @@ export class Login extends React.Component<any, any> {
           {this.renderRedirect()}
           <div className='loginForm' >
               {this.users().map((a: IUser):string => a.firstName)}
-            <div className="title">Login {this.state.name}</div>
+            <div className="title">Login</div>
             <div className='inputHolder'>
               <input type="text" onChange={e => this.setState({
                 name: e.target.value

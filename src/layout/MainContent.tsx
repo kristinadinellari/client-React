@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from "react-router-dom";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import clsx from 'clsx';
 import { makeStyles, useTheme, Theme, createStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
@@ -8,7 +8,6 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import List from '@material-ui/core/List';
-import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -21,7 +20,6 @@ import PermIdentityIcon from '@material-ui/icons/PermIdentity';
 import PeopleIcon from '@material-ui/icons/People';
 import UserList from '../pages/User/List';
 import UserProfile from '../pages/User/Profile';
-
 
 const drawerWidth = 240;
 
@@ -88,9 +86,6 @@ export default function PersistentDrawerLeft() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
-  const user = localStorage.getItem('user')
-
-
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -143,12 +138,10 @@ export default function PersistentDrawerLeft() {
       </Drawer>
       <main className={clsx(classes.content, { [classes.contentShift]: open, })}>
         <div className={classes.drawerHeader} />
-
-        {/* <div>{user}</div> */}
-
-        <Route exact path="/users" component={UserList} />
-        <Route exact path="/profile" component={UserProfile} />
-
+        <Switch>
+          <Route path="/users" component={UserList} />
+          <Route path="/profile" component={UserProfile} />
+        </Switch>
       </main>
     </div>
   );
