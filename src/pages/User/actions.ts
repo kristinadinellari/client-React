@@ -2,10 +2,9 @@ import { IUser } from "../../interfaces";
 import { store } from "../../store/storeConfig";
 import { AppActions, SET_USERS, SET_USER } from "../../store/actions/types";
 
-export const setUsers = (users: IUser[], userName: string): AppActions => ({
+export const setUsers = (users: IUser[]): AppActions => ({
   type: SET_USERS,
-  users,
-  userName
+  users
 });
 
 export const setUser = (user: IUser): AppActions => ({
@@ -13,18 +12,16 @@ export const setUser = (user: IUser): AppActions => ({
   user
 });
 
-export const startSetUsers = (users: IUser[], userName: string) => {
-  const loggedInUser = users.filter((a:IUser) => a.firstName === userName);
-  if (loggedInUser && loggedInUser.length > 0) {
-    const { firstName, lastName, type } = loggedInUser[0];
-    localStorage.setItem('user', JSON.stringify({
-      name: `${firstName} ${lastName}`,
-      type: type
-    }));
-  };
-  return store.dispatch(setUsers(users, userName));
+export const startSetUsers = (users: IUser[]) => {
+  return store.dispatch(setUsers(users));
 };
 
 export const startSetUser = (user: IUser) => {
+  const { id, firstName, lastName, type } = user;
+  localStorage.setItem('user', JSON.stringify({
+    name: `${firstName} ${lastName}`,
+    type: type,
+    id: id
+  }));
   return store.dispatch(setUser(user));
 };

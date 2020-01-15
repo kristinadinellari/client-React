@@ -5,8 +5,7 @@ export const SET_USER = "SET_USER";
 
 export interface SetUsersAction {
   type: typeof SET_USERS,
-  users: IUser[],
-  userName: string
+  users: IUser[]
 }
 export interface SetUserAction {
   type: typeof SET_USER,

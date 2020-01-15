@@ -16,20 +16,31 @@ export const addUser = (): void => {
   });
 };
 
-let test: Array<IUser> = [];
+let users: Array<IUser> = [];
 
-export const getUsers = (userName: string) => {
+export const getUsers = () => {
   db.collection("users").get().then((response) => {
     response.forEach((res) => {
-      test.push(<IUser>res.data())
+      const user = {
+        ...res.data(),
+        id: res.id
+      }
+      users.push(<IUser>user);
     });
-    startSetUsers(test, userName);
-    startSetUser(test[0])
+    startSetUsers(users);
   });
 };
 
 export const getUser = (firstName: string) => {
-  // db.collection(`users/${firstName}`).get().then((res) => {
-  const res  = db.collection(`users`).doc(`${firstName}`)
-  console.log(res, 'res')
+  const result: Array<any> = []
+  db.collection('users').where('firstName', '==', `${firstName}`).get().then((response) => {
+    response.forEach((res) => {
+      const user = {
+        ...res.data(),
+        id: res.id,
+      }
+      result.push(user)
+    });
+    startSetUser(result[0])
+  });
 };

@@ -7,9 +7,8 @@ const userReducer = (state = userReducerDefaultState, action: UserActionsTypes):
   switch (action.type) {
     case "SET_USERS":
       return {
-        ...state,
-        users: action.users,
-        userName: action.userName
+        // ...state,
+        users: action.users
       };
     case "SET_USER":
       return {
@@ -20,5 +19,4 @@ const userReducer = (state = userReducerDefaultState, action: UserActionsTypes):
       return state;
   };
 };
-
 export {userReducer};
