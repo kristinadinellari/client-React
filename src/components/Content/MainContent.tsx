@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Route, Switch } from "react-router-dom";
 import clsx from 'clsx';
 import useStyles from '../Menu/Style';
@@ -11,7 +11,12 @@ import UserProfile from './User/Profile';
 export default function MainContent() {
   const classes = useStyles();
 
-  const [open, setOpen] = React.useState(false);
+  // here we have used hooks where the first el of array is the current state and 
+  // the second will be the function that we call to update state
+
+  // inside the useState is the first value of state ex: open = false;
+  
+  const [open, setOpen] = useState(false);
 
   const handleDrawerOpen = () => {
     setOpen(true);
