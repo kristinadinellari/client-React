@@ -1,5 +1,5 @@
-import { UserActionsTypes } from '../../store/actions/types'
-import { IUser } from "../../interfaces";
+import { UserActionsTypes } from '../../../store/actions/types';
+import { IUser } from "../../../interfaces";
 
 const userReducerDefaultState: IUser[] = [];
 
@@ -7,7 +7,6 @@ const userReducer = (state = userReducerDefaultState, action: UserActionsTypes):
   switch (action.type) {
     case "SET_USERS":
       return {
-        // ...state,
         users: action.users
       };
     case "SET_USER":
@@ -17,6 +16,7 @@ const userReducer = (state = userReducerDefaultState, action: UserActionsTypes):
       };
     default:
       return state;
-  };
+  }
 };
-export {userReducer};
+
+export { userReducer };

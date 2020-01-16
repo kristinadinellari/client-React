@@ -1,27 +1,28 @@
 import React from 'react';
+import { AppState } from "../../../store/storeConfig";
 import { connect } from "react-redux";
-import { ICalorie } from 'interfaces';
-import { AppState } from "../../store/storeConfig";
-import { getCalories } from '../../services/calories'
+import { getCalories } from '../../../services/calories';
+import { ICalorie } from '../../../interfaces';
+import Paper from '@material-ui/core/Paper';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
 
 const mapStateToProps = (state: AppState) => ({
   users: state.users
 });
 
 export class ProfileComponent extends React.Component<any, any> {
+
   constructor(props: any) {
     super(props);
     this.state = {
       calories: []
     };
-  };
+  }
 
   componentDidMount() {
     this.getUserData();
@@ -30,18 +31,16 @@ export class ProfileComponent extends React.Component<any, any> {
   getUserData() {
     const UserFromlocalStorage: any = localStorage.getItem('user');
     const userObj = JSON.parse(UserFromlocalStorage);
-    const caloriesData: Array<any> = [];
-    if (userObj
-      && userObj.id) {
+    const caloriesData: any = [];
+    if (userObj && userObj.id) {
       getCalories(userObj.id).then((response) => {
         response.forEach((res) => {
-          console.log(res.data())
-          caloriesData.push(res.data())
+          caloriesData.push(res.data());
         });
-        this.setState({calories: caloriesData})
+        this.setState({ calories: caloriesData });
       });
-    };
-  };
+    }
+  }
 
   render() {
     return (
@@ -66,7 +65,7 @@ export class ProfileComponent extends React.Component<any, any> {
         </Table>
       </TableContainer>
     );
-  };
-};
+  }
+}
 
 export default connect(mapStateToProps)(ProfileComponent);

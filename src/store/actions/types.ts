@@ -7,6 +7,7 @@ export interface SetUsersAction {
   type: typeof SET_USERS,
   users: IUser[]
 }
+
 export interface SetUserAction {
   type: typeof SET_USER,
   user: IUser

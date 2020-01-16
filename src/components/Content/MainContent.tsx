@@ -1,6 +1,5 @@
 import React from 'react';
-import { NavLink } from "react-router-dom";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, NavLink } from "react-router-dom";
 import clsx from 'clsx';
 import { makeStyles, useTheme, Theme, createStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
@@ -18,8 +17,8 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import PermIdentityIcon from '@material-ui/icons/PermIdentity';
 import PeopleIcon from '@material-ui/icons/People';
-import UserList from '../pages/User/List';
-import UserProfile from '../pages/User/Profile';
+import UserList from './User/List';
+import UserProfile from './User/Profile';
 
 const drawerWidth = 240;
 
@@ -97,8 +96,7 @@ export default function PersistentDrawerLeft() {
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <AppBar
-        position="fixed"
+      <AppBar position="fixed"
         className={clsx(classes.appBar, { [classes.appBarShift]: open })}>
         <Toolbar>
           <IconButton
@@ -111,14 +109,8 @@ export default function PersistentDrawerLeft() {
           </IconButton>
         </Toolbar>
       </AppBar>
-      <Drawer
-        className={classes.drawer}
-        variant="persistent"
-        anchor="left"
-        open={open}
-        classes={{
-          paper: classes.drawerPaper,
-        }}>
+      <Drawer className={classes.drawer} variant="persistent"
+        anchor="left" open={open} classes={{ paper: classes.drawerPaper }}>
         <div className={classes.drawerHeader}>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
@@ -127,8 +119,9 @@ export default function PersistentDrawerLeft() {
         <Divider />
         <List>
           {[{ title: 'Profile', route: '/profile', icon: '' }, { title: 'Users', route: '/users' }].map((text, index): any => (
-            <NavLink to={text.route}>
-              <ListItem button key={index}>
+            <NavLink to={text.route} key={index}>
+              <ListItem button >
+                {index}
                 <ListItemIcon>{index % 2 === 0 ? <PermIdentityIcon /> : <PeopleIcon />}</ListItemIcon>
                 <ListItemText primary={text.title} />
               </ListItem>

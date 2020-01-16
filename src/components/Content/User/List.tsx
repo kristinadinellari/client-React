@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from "react-redux";
-import { IUser } from 'interfaces';
-import { AppState } from "../../store/storeConfig";
-import { getUsers } from '../../services/users';
+import { IUser } from '../../../interfaces';
+import { AppState } from "../../../store/storeConfig";
+import { getUsers } from '../../../services/users';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -15,20 +15,19 @@ const mapStateToProps = (state: AppState) => ({
   users: state.users
 });
 
-export class SimpleTable extends React.Component<any, any> {
-
+export class UsersList extends React.Component<any, any> {
   users(): IUser[] {
     if (this.props.users && this.props.users.length > 0) {
       return this.props.users;
     }
     else {
-      return []
+      return [];
     }
-  };
+  }
 
   getUsersData() {
     if (!this.props.users || this.props.users.length < 0) {
-      getUsers()
+      getUsers();
     }
   }
 
@@ -56,7 +55,7 @@ export class SimpleTable extends React.Component<any, any> {
         </Table>
       </TableContainer>
     );
-  };
-};
+  }
+}
 
-export default connect(mapStateToProps)(SimpleTable);
+export default connect(mapStateToProps)(UsersList);

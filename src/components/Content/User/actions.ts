@@ -1,6 +1,6 @@
-import { IUser } from "../../interfaces";
-import { store } from "../../store/storeConfig";
-import { AppActions, SET_USERS, SET_USER } from "../../store/actions/types";
+import { IUser } from "../../../interfaces";
+import { store } from "../../../store/storeConfig";
+import { AppActions, SET_USERS, SET_USER } from "../../../store/actions/types";
 
 export const setUsers = (users: IUser[]): AppActions => ({
   type: SET_USERS,
@@ -17,13 +17,16 @@ export const startSetUsers = (users: IUser[]) => {
 };
 
 export const startSetUser = (user: IUser) => {
+
   const { id, firstName, lastName, type } = user;
+
   localStorage.setItem('user', JSON.stringify({
+    id: id,
     firstName: firstName,
-    lastName: lastName,
     fullName: `${firstName} ${lastName}`,
-    type: type,
-    id: id
+    lastName: lastName,
+    type: type
   }));
+
   return store.dispatch(setUser(user));
 };

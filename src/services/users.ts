@@ -1,6 +1,6 @@
 import { IUser } from '../interfaces'
 import { db } from '../Firebase/firebase'
-import { startSetUsers, startSetUser } from '../pages/User/actions'
+import { startSetUsers, startSetUser } from '../components/Content/User/actions'
 
 export const addUser = (): void => {
   db.collection("users").add({

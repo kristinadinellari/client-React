@@ -1,6 +1,6 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 
-import { userReducer } from '../pages/User/reducers';
+import { userReducer } from '../components/Content/User/reducers';
 
 // export const rootReducer = combineReducers({userReducer});
 
