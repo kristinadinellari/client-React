@@ -1,6 +1,6 @@
-import { IUser } from '../interfaces'
-import { db } from '../Firebase/firebase'
-import { startSetUsers, startSetUser } from '../components/Content/User/actions'
+import { IUser } from '../interfaces';
+import { db } from '../Firebase/firebase';
+import { startSetUsers, startSetUser } from '../components/Content/User/actions';
 
 export const addUser = (): void => {
   db.collection("users").add({
@@ -9,14 +9,10 @@ export const addUser = (): void => {
     firstName: 'testNAme',
     lastName: 'testSurname',
     type: 1
-  }).then((res) => {
-    console.log("Document written with ID: ", res);
-  }).catch(function (error) {
-    console.error("Error adding document: ", error);
   });
 };
 
-let users: Array<IUser> = [];
+const users: IUser[] = [];
 
 export const getUsers = () => {
   db.collection("users").get().then((response) => {
@@ -25,14 +21,14 @@ export const getUsers = () => {
         ...res.data(),
         id: res.id
       };
-      users.push(<IUser>user);
+      users.push(user as IUser);
     });
     startSetUsers(users);
   });
 };
 
 export const getUser = (firstName: string) => {
-  const result: Array<any> = [];
+  const result: any = [];
   db.collection('users').where('firstName', '==', `${firstName}`).get().then((response) => {
     response.forEach((res) => {
       const user = {
@@ -43,4 +39,8 @@ export const getUser = (firstName: string) => {
     });
     startSetUser(result[0]);
   });
+};
+
+export const getUserById = (id: string) => {
+  return db.collection('users').doc(`${id}`).get();
 };

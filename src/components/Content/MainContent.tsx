@@ -6,7 +6,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Sidebar from '../Menu/Sidebar';
 import Nav from '../Menu/Nav';
 import UserList from './User/List';
-import UserProfile from './User/Profile';
+import ProfileComponent from './User/Profile';
 
 export default function MainContent() {
   const classes = useStyles();
@@ -40,7 +40,8 @@ export default function MainContent() {
         <div className={classes.drawerHeader} />
         <Switch>
           <Route path="/users" render={() => (getUser().type === 1 || getUser().type === 2 ? <UserList /> : '')} />
-          <Route path="/profile" component={UserProfile} />
+          <Route path="/profile/:id" component={ProfileComponent} />
+          {/* <Route path="/profile" component={ProfileComponent} /> */}
         </Switch>
       </main>
     </div>

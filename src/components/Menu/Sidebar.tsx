@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, useRouteMatch } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import useStyles from './Style';
 import { useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
@@ -23,27 +23,34 @@ export default function Sidebar(props: any) {
     const user: any = localStorage.getItem('user');
     const userObject: any = JSON.parse(user);
     if (userObject) {
-      return userObject.type;
+      return userObject;
     }
   };
 
   const getSidebarList = () => {
-    let arr = [
-      {
-        title: 'Profile',
-        route: '/profile',
-        icon: ''
+    if (getUser()) {
+      let arr = [
+        {
+          title: 'Profile',
+          route: `/profile/${getUser().id}`,
+          icon: ''
+        }
+      ];
+      if (getUser().type === 1 || getUser().type === 2) {
+        arr = [...arr, {
+          title: 'Users',
+          route: '/users',
+          icon: ''
+        }];
       }
-    ];
-
-    if (getUser() === 1 || getUser() === 2) {
-      arr = [...arr, {
+      return arr;
+    } else {
+      return [{
         title: 'Users',
         route: '/users',
         icon: ''
       }];
     }
-    return arr;
   };
 
   return (
