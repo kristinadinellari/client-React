@@ -40,8 +40,7 @@ export default function MainContent() {
         <div className={classes.drawerHeader} />
         <Switch>
           <Route path="/users" render={() => (getUser().type === 1 || getUser().type === 2 ? <UserList /> : '')} />
-          <Route path="/profile/:id" component={ProfileComponent} />
-          {/* <Route path="/profile" component={ProfileComponent} /> */}
+          <Route path="/:id" component={ProfileComponent} />
         </Switch>
       </main>
     </div>

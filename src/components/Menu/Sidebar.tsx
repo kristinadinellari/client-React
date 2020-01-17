@@ -32,7 +32,7 @@ export default function Sidebar(props: any) {
       let arr = [
         {
           title: 'Profile',
-          route: `/profile/${getUser().id}`,
+          route: `/${getUser().id}`,
           icon: ''
         }
       ];

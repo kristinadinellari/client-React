@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { IUser } from '../../../interfaces';
 import { AppState } from "../../../store/storeConfig";
@@ -46,7 +47,11 @@ export class UsersList extends React.Component<any, any> {
           <TableBody>
             {this.users().map((user: IUser) => (
               <TableRow key={user.id}>
-                <TableCell>{user.firstName}</TableCell>
+                <TableCell>
+                  <Link to={user.id}>
+                    {user.firstName}
+                  </Link>
+                </TableCell>
                 <TableCell>{user.lastName}</TableCell>
                 <TableCell>{user.type}</TableCell>
               </TableRow>
