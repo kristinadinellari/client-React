@@ -15,7 +15,7 @@ export default function MainContent() {
   // the second will be the function that we call to update state
 
   // inside the useState is the first value of state ex: open = false;
-  
+
   const [open, setOpen] = useState(false);
 
   const handleDrawerOpen = () => {
@@ -26,6 +26,11 @@ export default function MainContent() {
     setOpen(false);
   };
 
+  const getUser = () => {
+    const user: any = localStorage.getItem('user');
+    return JSON.parse(user);
+  };
+
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -34,7 +39,7 @@ export default function MainContent() {
       <main className={clsx(classes.content, { [classes.contentShift]: open, })}>
         <div className={classes.drawerHeader} />
         <Switch>
-          <Route path="/users" component={UserList} />
+          <Route path="/users" render={() => (getUser().type === 1 || getUser().type === 2 ? <UserList /> : '')} />
           <Route path="/profile" component={UserProfile} />
         </Switch>
       </main>

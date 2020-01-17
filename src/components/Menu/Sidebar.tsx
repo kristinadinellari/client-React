@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from "react-router-dom";
+import { NavLink, useRouteMatch } from "react-router-dom";
 import useStyles from './Style';
 import { useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
@@ -19,6 +19,33 @@ export default function Sidebar(props: any) {
   const classes = useStyles();
   const theme = useTheme();
 
+  const getUser = () => {
+    const user: any = localStorage.getItem('user');
+    const userObject: any = JSON.parse(user);
+    if (userObject) {
+      return userObject.type;
+    }
+  };
+
+  const getSidebarList = () => {
+    let arr = [
+      {
+        title: 'Profile',
+        route: '/profile',
+        icon: ''
+      }
+    ];
+
+    if (getUser() === 1 || getUser() === 2) {
+      arr = [...arr, {
+        title: 'Users',
+        route: '/users',
+        icon: ''
+      }];
+    }
+    return arr;
+  };
+
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -31,7 +58,7 @@ export default function Sidebar(props: any) {
         </div>
         <Divider />
         <List>
-          {[{ title: 'Profile', route: '/profile', icon: '' }, { title: 'Users', route: '/users' }].map((text, index): any => (
+          {getSidebarList().map((text, index): any => (
             <NavLink to={text.route} key={index}>
               <ListItem button >
                 <ListItemIcon>{index % 2 === 0 ? <PermIdentityIcon /> : <PeopleIcon />}</ListItemIcon>
