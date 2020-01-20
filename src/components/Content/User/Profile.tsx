@@ -24,6 +24,8 @@ export class ProfileComponent extends React.Component<any, any> {
       user: '',
       calories: []
     };
+    const id: string = this.props.match.params.id;
+    this.getUserData(id);
   }
 
   getUserData(id: string) {
@@ -39,11 +41,6 @@ export class ProfileComponent extends React.Component<any, any> {
         this.setState({ calories: caloriesData });
       });
     }
-  }
-
-  componentDidMount() {
-    const id: string = this.props.match.params.id;
-    this.getUserData(id);
   }
 
   render() {
@@ -63,7 +60,6 @@ export class ProfileComponent extends React.Component<any, any> {
             </TableHead>
             <TableBody>
               {this.state.calories.map((calorie: ICalorie, index: number) => (
-
                 <TableRow key={index}>
                   <TableCell>{calorie.amount}</TableCell>
                   <TableCell>{calorie.date}</TableCell>

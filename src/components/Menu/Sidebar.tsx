@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import useStyles from './Style';
 import { useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
@@ -66,12 +66,12 @@ export default function Sidebar(props: any) {
         <Divider />
         <List>
           {getSidebarList().map((text, index): any => (
-            <NavLink to={text.route} key={index}>
+            <Link to={text.route} key={index}>
               <ListItem button >
                 <ListItemIcon>{index % 2 === 0 ? <PermIdentityIcon /> : <PeopleIcon />}</ListItemIcon>
                 <ListItemText primary={text.title} />
               </ListItem>
-            </NavLink>
+            </Link>
           ))}
         </List>
       </Drawer>
