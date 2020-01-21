@@ -1,12 +1,11 @@
 import React from "react";
-import { Redirect } from 'react-router-dom';
 import { getUser } from '../services/users';
 import { AppState } from "../store/storeConfig";
 import { connect } from "react-redux";
-import { IUser } from '../interfaces';
+import { IUser } from "../interfaces/index";
+import { startSetUser } from '../components/Content/User/actions';
 
 const mapStateToProps = (state: AppState) => ({
-  users: state.users,
   user: state.user,
   userName: state.userName
 });
@@ -16,43 +15,39 @@ export class Login extends React.Component<any, any> {
     super(props);
     this.state = {
       name: String,
-      password: '',
-      redirect: false
+      password: ''
     };
-  }
-
-  setRedirect = () => {
-    this.setState({
-      redirect: true
-    });
-  }
-
-  renderRedirect = () => {
-    if (this.state.redirect) {
-      return <Redirect to='/users' />;
-    }
   }
 
   login = () => {
     const userName = this.state.name;
-    getUser(userName);
-    this.setRedirect();
+    const result: any = [];
+    getUser(userName).then((response) => {
+      response.forEach((res) => {
+        const user = {
+          ...res.data(),
+          id: res.id,
+        };
+        result.push(user);
+      });
+      const userObj: IUser = result[0];
+      const { id, firstName, lastName, type } = userObj;
+      localStorage.setItem('user', JSON.stringify({
+        id: id,
+        firstName: firstName,
+        fullName: `${firstName} ${lastName}`,
+        lastName: lastName,
+        type: type
+      }));
+      startSetUser(userObj);
+    });
+    this.props.history.push("/users");
   }
 
-  users(): IUser[] {
-    if (this.props.users && this.props.users.length > 0) {
-      return this.props.users;
-    }
-    else {
-      return [];
-    }
-  }
   render() {
     return (
       <div className='login'>
-        {this.renderRedirect()}
         <div className='loginForm' >
-          {this.users().map((a: IUser): string => a.firstName)}
           <div className="title">Login</div>
           <div className='inputHolder'>
             <input type="text" onChange={e => this.setState({
@@ -67,7 +62,7 @@ export class Login extends React.Component<any, any> {
           <div className='inputHolder'>
             <button onClick={this.login}>
               Login
-              </button>
+            </button>
           </div>
         </div>
       </div>

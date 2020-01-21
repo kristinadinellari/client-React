@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import './assets/scss/app.scss';
 // components
 import Login from "./components/Login";
@@ -12,16 +12,15 @@ class App extends React.Component {
       <Router>
         <Switch>
           <Route path="/login" component={Login} />
-          <Route path="/" render={(props) => {
+          <Route path="/" render={() => {
             const user: any = localStorage.getItem('user');
             const userObj = JSON.parse(user);
             if (userObj && userObj.firstName) {
               return <MainContent />;
             } else {
-              return <Login />;
+              return <Redirect to='/login' />;
             }
           }} />
-
         </Switch>
       </Router>
     );

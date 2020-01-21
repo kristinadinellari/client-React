@@ -1,6 +1,4 @@
-import { IUser } from '../interfaces';
 import { db } from '../Firebase/firebase';
-import { startSetUsers, startSetUser } from '../components/Content/User/actions';
 
 export const addUser = (): void => {
   db.collection("users").add({
@@ -12,33 +10,13 @@ export const addUser = (): void => {
   });
 };
 
-const users: IUser[] = [];
 
 export const getUsers = () => {
-  db.collection("users").get().then((response) => {
-    response.forEach((res) => {
-      const user = {
-        ...res.data(),
-        id: res.id
-      };
-      users.push(user as IUser);
-    });
-    startSetUsers(users);
-  });
+  return db.collection("users").get();
 };
 
 export const getUser = (firstName: string) => {
-  const result: any = [];
-  db.collection('users').where('firstName', '==', `${firstName}`).get().then((response) => {
-    response.forEach((res) => {
-      const user = {
-        ...res.data(),
-        id: res.id,
-      };
-      result.push(user);
-    });
-    startSetUser(result[0]);
-  });
+  return db.collection('users').where('firstName', '==', `${firstName}`).get();
 };
 
 export const getUserById = (id: string) => {

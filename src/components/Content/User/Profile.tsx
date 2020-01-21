@@ -1,6 +1,4 @@
-import React from 'react';
-import { AppState } from "../../../store/storeConfig";
-import { connect } from "react-redux";
+import React, { useState, useEffect } from 'react';
 import { getCalories } from '../../../services/calories';
 import { getUserById } from '../../../services/users';
 import { ICalorie } from '../../../interfaces';
@@ -12,66 +10,100 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 
-const mapStateToProps = (state: AppState) => ({
-  users: state.users
-});
+const ProfileComponent = (props: any) => {
+  const [user, setUser] = useState({
+    firstName: '',
+    lastName: ''
+  });
+  const [calories, setCalories] = useState([]);
 
-export class ProfileComponent extends React.Component<any, any> {
+  useEffect(() => {
+    const id: string = props.match.params.id;
+    getUserById(id).then((response: any) => {
+      setUser(response.data());
+    });
+  }, [props.match.params.id]);
 
-  constructor(props: any) {
-    super(props);
-    this.state = {
-      user: '',
-      calories: []
-    };
-    const id: string = this.props.match.params.id;
-    this.getUserData(id);
-  }
-
-  getUserData(id: string) {
+  useEffect(() => {
     const caloriesData: any = [];
-    if (id) {
-      getUserById(id).then((response: any) => {
-        this.setState({ user: response.data() });
+    const id: string = props.match.params.id;
+    getCalories(id).then((response) => {
+      response.forEach((res) => {
+        caloriesData.push(res.data());
       });
-      getCalories(id).then((response) => {
-        response.forEach((res) => {
-          caloriesData.push(res.data());
-        });
-        this.setState({ calories: caloriesData });
-      });
-    }
-  }
+      setCalories(caloriesData);
+    });
+  }, [props.match.params.id]);
 
-  render() {
-    return (
-      <div>
-        <h2 className="nameHolder">
-          {this.state.user.firstName} {this.state.user.lastName}
-        </h2>
-        <TableContainer component={Paper}>
-          <Table aria-label="simple table">
-            <TableHead>
-              <TableRow>
-                <TableCell>Amout</TableCell>
-                <TableCell>Date</TableCell>
-                <TableCell>User</TableCell>
+  console.log(user, 'user');
+
+  return (
+    <div>
+      <h2 className="nameHolder">
+        {user.firstName} {user.lastName}
+      </h2>
+      <TableContainer component={Paper}>
+        <Table aria-label="simple table">
+          <TableHead>
+            <TableRow>
+              <TableCell>Amout</TableCell>
+              <TableCell>Date</TableCell>
+              <TableCell>User</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {calories.map((calorie: ICalorie, index: number) => (
+              <TableRow key={index}>
+                <TableCell>{calorie.amount}</TableCell>
+                <TableCell>{calorie.date}</TableCell>
+                <TableCell>{calorie.userId}</TableCell>
               </TableRow>
-            </TableHead>
-            <TableBody>
-              {this.state.calories.map((calorie: ICalorie, index: number) => (
-                <TableRow key={index}>
-                  <TableCell>{calorie.amount}</TableCell>
-                  <TableCell>{calorie.date}</TableCell>
-                  <TableCell>{calorie.userId}</TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
-      </div>
-    );
-  }
-}
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </div>
+  );
+};
 
-export default connect(mapStateToProps)(ProfileComponent);
+export default ProfileComponent;
+
+// export class ProfileComponent extends React.Component<any, any> {
+
+//   constructor(props: any) {
+//     super(props);
+//     this.state = {
+//       user: '',
+//       calories: []
+//     };
+//   }
+
+//   componentDidMount() {
+//     const id: string = this.props.match.params.id;
+//     this.getUserData(id);
+//   }
+
+//   componentDidUpdate() {
+//     const id: string = this.props.match.params.id;
+//     this.getUserData(id);
+//   }
+
+//   getUserData(id: string) {
+//     const caloriesData: any = [];
+//     if (id) {
+//       getUserById(id).then((response: any) => {
+//         this.setState({ user: response.data() });
+//       });
+//       getCalories(id).then((response) => {
+//         response.forEach((res) => {
+//           caloriesData.push(res.data());
+//         });
+//         this.setState({ calories: caloriesData });
+//       });
+//     }
+//   }
+
+//   render() {
+
+//   }
+// }
