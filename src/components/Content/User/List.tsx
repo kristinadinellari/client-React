@@ -68,7 +68,7 @@ export class UsersList extends React.Component<any, any> {
               <TableCell align="center">Name</TableCell>
               <TableCell align="center">Surname</TableCell>
               <TableCell align="center">Type</TableCell>
-              <TableCell align="center">Actions</TableCell>
+              {/* <TableCell align="center">Actions</TableCell> */}
             </TableRow>
           </TableHead>
           <TableBody>
@@ -81,9 +81,9 @@ export class UsersList extends React.Component<any, any> {
                 </TableCell>
                 <TableCell align="center">{user.lastName}</TableCell>
                 <TableCell align="center">{user.type}</TableCell>
-                <TableCell align="center">
+                {/* <TableCell align="center">
                   <EditIcon />
-                </TableCell>
+                </TableCell> */}
               </TableRow>
             ))}
           </TableBody>

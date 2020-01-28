@@ -76,11 +76,12 @@ export default function CustomizedDialogs(props: any) {
   };
 
   return (
-    <Dialog maxWidth='lg' onClose={props.handleClose}
-      fullWidth={true} aria-labelledby="customized-dialog-title" open={props.open}>
+    <Dialog maxWidth='lg' onClose={props.handleClose} fullWidth={true} aria-labelledby="customized-dialog-title" open={props.open}>
+
       <DialogTitle id="customized-dialog-title" onClose={props.handleClose}>
         Edit {user.firstName} {props.user.lastName}
       </DialogTitle>
+
       <DialogContent className="dialog-holder">
         <TextField fullWidth={true} id="first-name" label="First Name" variant="outlined" value={user.firstName} onChange={e => {
           setUser({
@@ -89,23 +90,29 @@ export default function CustomizedDialogs(props: any) {
           });
         }} />
       </DialogContent>
+
       <DialogContent className="dialog-holder">
         <TextField fullWidth={true} id="last-name" label="Surname" variant="outlined" value={user.lastName} onChange={e => setUser({
           ...user,
           lastName: e.target.value
         })} />
       </DialogContent>
+
       <DialogContent className="dialog-holder">
-        <TextField fullWidth={true} id="type" type="number" label="Type" variant="outlined" value={user.type} onChange={e => setUser({
-          ...user,
-          type: parseInt(e.target.value) | 0
-        })} />
+        <TextField fullWidth={true} id="type" type="number" label="Type" variant="outlined"
+          inputProps={{ min: "1", max: "3", step: "1" }}
+          value={user.type} onChange={e => setUser({
+            ...user,
+            type: parseInt(e.target.value, 10)
+          })} />
       </DialogContent>
+
       <DialogActions>
         <Button autoFocus onClick={saveChanges} color="primary">
           Save changes
         </Button>
       </DialogActions>
+
     </Dialog >
   );
 }
