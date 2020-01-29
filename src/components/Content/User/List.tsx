@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { IUser } from '../../../interfaces';
 import { AppState } from "../../../store/storeConfig";
 import { getUsers } from '../../../services/users';
-import { startSetUsers } from '../User/actions';
+import { startSetUsers } from './actions';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -31,7 +31,7 @@ export class UsersList extends React.Component<any, any> {
   getUser = () => {
     const user: any = localStorage.getItem('user');
     return JSON.parse(user);
-  }
+  };
 
   getUsersData() {
     let users: IUser[] = [];
@@ -68,7 +68,7 @@ export class UsersList extends React.Component<any, any> {
               <TableCell align="center">Name</TableCell>
               <TableCell align="center">Surname</TableCell>
               <TableCell align="center">Type</TableCell>
-              <TableCell align="center">Actions</TableCell>
+              {/* <TableCell align="center">Actions</TableCell> */}
             </TableRow>
           </TableHead>
           <TableBody>
@@ -81,9 +81,9 @@ export class UsersList extends React.Component<any, any> {
                 </TableCell>
                 <TableCell align="center">{user.lastName}</TableCell>
                 <TableCell align="center">{user.type}</TableCell>
-                <TableCell align="center">
+                {/* <TableCell align="center">
                   <EditIcon />
-                </TableCell>
+                </TableCell> */}
               </TableRow>
             ))}
           </TableBody>

@@ -99,4 +99,21 @@
 
 .nameHolder {
   padding: 30px 0;
+
+  button {
+    margin-left: 20px;
+    padding: 5px !important;
+    width: auto !important;
+    height: auto !important;
+  }
+}
+
+// dialog
+
+.dialog-holder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
 }

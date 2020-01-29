@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6308d28a-994e-47b6-9234-4b3d0453afc4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/components/Content/User/Profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Content/User/Profile.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Content/User/List.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Content/User/List.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,7 +23,11 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../scobees_frontend" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="$PROJECT_DIR$/node_modules/prettier" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.General" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
   </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
@@ -47,7 +52,25 @@
       <option name="presentableId" value="Default" />
       <updated>1579526179474</updated>
       <workItem from="1579526186681" duration="6000" />
+      <workItem from="1579778821364" duration="351000" />
+      <workItem from="1579779173479" duration="76000" />
+      <workItem from="1579786492928" duration="431000" />
+      <workItem from="1579786942262" duration="111000" />
+      <workItem from="1579787072621" duration="1240000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="774" y="370" width="424" height="484" key="FileChooserDialogImpl" timestamp="1579788310292">
+      <screen x="63" y="27" width="1857" height="1173" />
+    </state>
+    <state x="774" y="370" width="424" height="484" key="FileChooserDialogImpl/63.27.1857.1173@63.27.1857.1173" timestamp="1579788310292" />
+    <state x="480" y="247" key="SettingsEditor" timestamp="1579787430488">
+      <screen x="63" y="27" width="1857" height="1173" />
+    </state>
+    <state x="480" y="247" key="SettingsEditor/63.27.1857.1173@63.27.1857.1173" timestamp="1579787430488" />
   </component>
 </project>
